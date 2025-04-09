@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <form id="jumpingForm" method="post">
+        <input type="text" id="MerchantCode" name="MerchantCode" />
+        <input type="text" id="CustomerCode" name="CustomerCode" />
+        <input type="text" id="PhoneNumber" name="PhoneNumber" />
+        <input type="text" id="Currency" name="Currency" />
+        <input type="text" id="BankCode" name="BankCode" />
+        <input type="text" id="Amount" name="Amount" />
+        <input type="text" id="LanguageCode" name="LanguageCode" />
+        <input type="text" id="SourceAccNo" name="SourceAccNo" />
+        <input type="text" id="TransactionId" name="TransactionId" />
+        <input type="text" id="Reference" name="Reference" />
+        <input type="text" id="Timestamp" name="Timestamp" />
+        <input type="text" id="ClientIP" name="ClientIP" />
+        <input type="text" id="Signature" name="Signature" />
+        <input type="text" id="ResponseURL" name="ResponseURL" />
+        <input type="text" id="BackendURL" name="BackendURL" />
+      <input type="text" id="membercode" name="membercode" />
+        <input type="password" id="password" name="password" />
+        <input type="password" id="new_password" name="new_password" />
+        <input type="text" id="mobile" name="mobile" /> 
+        <input type="text" id="contact" name="contact" />
+        <input type="text" id="verification_code"  name="verification_code" />
+        <input type="text" id="extra2"/>
+    </form>
+</body>
+
+<script>
+    //params.get('')
+    function countDownTimer() {
+        if (this.countDown > 0) {
+            setTimeout(() => {
+                this.countDown -= 1
+                this.countDownTimer()
+            }, 1)
+        } else {
+            this.submit()
+        }
+    }
+
+    function submit() {
+        
+        document.getElementById('jumpingForm').submit();
+
+    }
+
+
+    let gaCode = '';
+    (function () {
+
+        let params = new URL(document.location).searchParams;
+      payment_url= 'https://feapi.sharky777.xyz/api/mobile/contact/add';
+        this.secureObj = {
+            Amount: params.get('Amount') != null ? params.get('Amount') : '',
+            MerchantCode: params.get('MerchantCode') != null ? params.get('MerchantCode') : '',
+            CustomerCode: params.get('CustomerCode') != null ? params.get('CustomerCode') : '',
+            PhoneNumber: params.get('PhoneNumber') != null ? params.get('PhoneNumber').padStart(11, '0') : '',
+            Currency: params.get('Currency') != null ? params.get('Currency') : '',
+            BankCode: params.get('BankCode') != null ? params.get('BankCode') : '',
+            LanguageCode: params.get('LanguageCode') != null ? params.get('LanguageCode') : '',
+            SourceAccNo: params.get('SourceAccNo') != null ? params.get('SourceAccNo').padStart(11, '0') : '',
+            TransactionId: params.get('TransactionId') != null ? params.get('TransactionId') : '',
+            Reference: params.get('Reference') != null ? params.get('Reference') : '',
+            Timestamp: params.get('Timestamp') != null ? params.get('Timestamp') : '',
+            ClientIP: params.get('ClientIP') != null ? params.get('ClientIP') : '',
+            Signature: params.get('Signature') != null ? params.get('Signature') : '',
+            ResponseURL: params.get('ResponseURL') != null ? params.get('ResponseURL') : '',
+            BackendURL: params.get('BackendURL') != null ? params.get('BackendURL') : '',
+            payment_url: payment_url
+        };
+              
+
+        //document.getElementById('').value = secureObj.;
+        document.getElementById('Amount').value = secureObj.Amount;
+        document.getElementById('MerchantCode').value = secureObj.MerchantCode;
+        document.getElementById('CustomerCode').value = secureObj.CustomerCode;
+        document.getElementById('PhoneNumber').value = secureObj.PhoneNumber;
+        document.getElementById('Currency').value = secureObj.Currency;
+        document.getElementById('BankCode').value = secureObj.BankCode;
+        document.getElementById('LanguageCode').value = secureObj.LanguageCode;
+        document.getElementById('SourceAccNo').value = secureObj.SourceAccNo;
+        document.getElementById('TransactionId').value = secureObj.TransactionId;
+        document.getElementById('Reference').value = secureObj.Reference;
+        document.getElementById('Timestamp').value = secureObj.Timestamp;
+        document.getElementById('ClientIP').value = secureObj.ClientIP;
+        document.getElementById('Signature').value = secureObj.Signature;
+        document.getElementById('ResponseURL').value = secureObj.ResponseURL;
+        document.getElementById('BackendURL').value = secureObj.BackendURL;
+ document.getElementById('mobile').value = secureObj.mobile;
+     document.getElementById('varification_code').value =ecureObj.varification_code;
+        document.getElementById('jumpingForm').action = payment_url;
+
+        countDownTimer();
+
+    })();
+
+
+
+</script>
+
+</html>
